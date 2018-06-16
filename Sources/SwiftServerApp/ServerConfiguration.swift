@@ -22,10 +22,10 @@ public extension ServerConfiguration {
     
     public static var secure: ServerConfiguration {
         // TODO: add tls config
-        return ServerConfiguration(name: "localhost", port: 8081, type: .secure, tlsCert: nil)
+        return ServerConfiguration(name: "localhost", port: 8443, type: .secure, tlsCert: nil)
     }
     
     public static var `internal`: ServerConfiguration {
-        return ServerConfiguration(name: "localhost", port: 8090, type: .internal)
+        return ServerConfiguration(name: "localhost", port: 8008, type: .internal)
     }
 }
