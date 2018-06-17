@@ -36,8 +36,14 @@ extension Application {
     private func makeServers() {
         for type in ServerType.all {
             if let config = delegate.configuration(for: type), let controller = delegate.controller(for: type) {
-                var routes = controller.routes
-                routes.add(controller.childRoutes)
+                var routes = Routes(baseUri: controller.path)
+                routes.add(controller.routes)
+                let childRoutes = controller.childRoutes.map {
+                    return Routes(baseUri: $0.key.replacingOccurrences(of: controller.path, with: ""), routes: $0.value)
+                }
+                for route in childRoutes {
+                    routes.add(route)
+                }
                 
                 var requestFilters = controller.requestFilters
                 requestFilters.append(contentsOf: controller.requestFilters)
