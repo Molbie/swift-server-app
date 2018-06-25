@@ -38,8 +38,12 @@ extension Application {
             if let config = delegate.configuration(for: type), let controller = delegate.controller(for: type) {
                 var routes = Routes(baseUri: controller.path)
                 routes.add(controller.routes)
-                let childRoutes = controller.childRoutes.map {
-                    return Routes(baseUri: $0.key.replacingOccurrences(of: controller.path, with: ""), routes: $0.value)
+                let childRoutes = controller.childRoutes.map { route -> Routes in
+                    var baseUri: String = route.key
+                    if baseUri.hasPrefix(controller.path) {
+                        baseUri = String(baseUri.dropFirst(controller.path.count))
+                    }
+                    return Routes(baseUri: baseUri, routes: route.value)
                 }
                 for route in childRoutes {
                     routes.add(route)
