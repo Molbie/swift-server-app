@@ -1,30 +1,41 @@
 import Foundation
 import PerfectHTTP
 import PerfectHTTPServer
+import PerfectLogger
+import PerfectRequestLogger
 
 
 public final class Application {
     public let delegate: ApplicationDelegate
+    private let requestLogger: RequestLogger
     private var servers = [ServerType: HTTPServer.Server]()
     private var serverContexts = [HTTPServer.LaunchContext]()
     private var controllers = [ServerType: RootController]()
     
     public init(delegate: ApplicationDelegate) {
         self.delegate = delegate
+        self.requestLogger = RequestLogger()
+        
+        RequestLogFile.location = delegate.requestLogFileLocation()
+        LogFile.location = delegate.applicationLogFileLocation()
     }
     
     public func start() {
+        LogFile.info("Starting application")
         makeServers()
         delegate.applicationWillBecomeActive(self)
         launchServers()
+        LogFile.info("Application started")
     }
     
     public func stop() {
         guard !serverContexts.isEmpty else { return }
         
+        LogFile.info("Terminating application")
         delegate.applicationWillTerminate(self)
         terminateServers()
         delegate.applicationDidTerminate(self)
+        LogFile.info("Application terminated")
     }
     
     deinit {
@@ -49,11 +60,13 @@ extension Application {
                     routes.add(route)
                 }
                 
-                var requestFilters = controller.requestFilters
+                var requestFilters: [(HTTPRequestFilter, HTTPFilterPriority)] = [(requestLogger, .high)]
                 requestFilters.append(contentsOf: controller.requestFilters)
+                requestFilters.append(contentsOf: controller.childRequestFilters)
                 
-                var responseFilters = controller.responseFilters
+                var responseFilters: [(HTTPResponseFilter, HTTPFilterPriority)] = [(requestLogger, .low)]
                 responseFilters.append(contentsOf: controller.responseFilters)
+                responseFilters.append(contentsOf: controller.childResponseFilters)
                 
                 let server: HTTPServer.Server
                 if let tlsCert = config.tlsCert {
@@ -77,11 +90,11 @@ extension Application {
                 serverContexts = try HTTPServer.launch(allServers)
             }
             catch {
-                print("Failed to launch server. Error: \(error)!")
+                LogFile.critical("Failed to launch servers. \(error)")
             }
         }
         else {
-            print("No servers configured!")
+            LogFile.critical("No servers configured.")
         }
     }
     

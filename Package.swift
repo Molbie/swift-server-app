@@ -11,10 +11,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/PerfectlySoft/Perfect-HTTPServer.git", from: "3.0.15"),
+        .package(url: "https://github.com/PerfectlySoft/Perfect-Logger.git", from: "3.0.2"),
+        .package(url: "https://github.com/PerfectlySoft/Perfect-RequestLogger.git", from: "3.0.2"),
         .package(url: "https://github.com/Molbie/swift-PostgreSQL.git", from: "1.0.0"),
         .package(url: "https://github.com/Molbie/Outlaw.git", from: "2.0.2"),
     ],
     targets: [
-        .target(name: "SwiftServerApp", dependencies: ["PerfectHTTPServer", "Outlaw", "SwiftPostgreSQL"])
+        .target(name: "SwiftServerApp", dependencies: ["PerfectHTTPServer", "PerfectLogger", "PerfectRequestLogger", "Outlaw", "SwiftPostgreSQL"])
     ]
 )

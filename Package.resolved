@@ -1,0 +1,142 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Outlaw",
+        "repositoryURL": "https://github.com/Molbie/Outlaw.git",
+        "state": {
+          "branch": null,
+          "revision": "d178c20059613a4f198215577844e69976f7b15e",
+          "version": "2.0.2"
+        }
+      },
+      {
+        "package": "COpenSSL",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-COpenSSL.git",
+        "state": {
+          "branch": null,
+          "revision": "7cc9341d0751b3d7e77927ad8c4e668e1c4dc1d1",
+          "version": "3.1.4"
+        }
+      },
+      {
+        "package": "PerfectCrypto",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Crypto.git",
+        "state": {
+          "branch": null,
+          "revision": "54e0f7c2a9d7355fca3c23e0f88096ac3765e08b",
+          "version": "3.1.2"
+        }
+      },
+      {
+        "package": "PerfectCURL",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CURL.git",
+        "state": {
+          "branch": null,
+          "revision": "d81d96a74f43407a4b57a7c5335fd19515b50aeb",
+          "version": "3.0.6"
+        }
+      },
+      {
+        "package": "PerfectCZlib",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CZlib-src.git",
+        "state": {
+          "branch": null,
+          "revision": "b63e46909aad937c6434766f8f8c6720d8f3bd05",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "package": "PerfectHTTP",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-HTTP.git",
+        "state": {
+          "branch": null,
+          "revision": "1800d923271679170f9beef030566c7290a2d170",
+          "version": "3.0.12"
+        }
+      },
+      {
+        "package": "PerfectHTTPServer",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-HTTPServer.git",
+        "state": {
+          "branch": null,
+          "revision": "50bd6f46fc8663c5e430391f4e1ebb078f15d00f",
+          "version": "3.0.17"
+        }
+      },
+      {
+        "package": "cURL",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-libcurl.git",
+        "state": {
+          "branch": null,
+          "revision": "672f6695d9ae04fce16ad01decef0649e0b872b0",
+          "version": "2.0.6"
+        }
+      },
+      {
+        "package": "PerfectLogger",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Logger.git",
+        "state": {
+          "branch": null,
+          "revision": "00bd1cf9d01657c73d7b3d27d5cc6437cc583f39",
+          "version": "3.1.0"
+        }
+      },
+      {
+        "package": "PerfectNet",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Net.git",
+        "state": {
+          "branch": null,
+          "revision": "32cf5846ce212bf6aa2cb9d27a9b4f230355c1f9",
+          "version": "3.2.0"
+        }
+      },
+      {
+        "package": "PerfectRequestLogger",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-RequestLogger.git",
+        "state": {
+          "branch": null,
+          "revision": "c2eaee1f37444b1866ef6967c9d6b5627b2307ef",
+          "version": "3.0.2"
+        }
+      },
+      {
+        "package": "PerfectThread",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-Thread.git",
+        "state": {
+          "branch": null,
+          "revision": "d783048201086dc2cdc08627041e5001157db7f3",
+          "version": "3.0.4"
+        }
+      },
+      {
+        "package": "PerfectLib",
+        "repositoryURL": "https://github.com/PerfectlySoft/PerfectLib.git",
+        "state": {
+          "branch": null,
+          "revision": "cdc17d544ec8e87da5f3b24cdbda8d02d77bb943",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "libpq",
+        "repositoryURL": "https://github.com/Molbie/swift-libpq-macos-installer.git",
+        "state": {
+          "branch": null,
+          "revision": "a39c2778684ab255a38db215864afa539c4a7bac",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "swift-PostgreSQL",
+        "repositoryURL": "https://github.com/Molbie/swift-PostgreSQL.git",
+        "state": {
+          "branch": null,
+          "revision": "5eb392c296536e8b9f4332f887119137ff93f649",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
