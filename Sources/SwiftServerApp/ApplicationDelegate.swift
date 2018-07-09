@@ -20,10 +20,18 @@ public extension ApplicationDelegate {
     public func applicationDidTerminate(_ application: Application) {}
     
     public func requestLogFileLocation() -> String {
+#if os(Linux)
         return "/var/log/access.log"
+#else
+        return "./access.log"
+#endif
     }
     public func applicationLogFileLocation() -> String {
+#if os(Linux)
         return "/var/log/application.log"
+#else
+        return "./application.log"
+#endif
     }
     
     public func configuration(for server: ServerType) -> ServerConfiguration? {
